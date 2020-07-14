@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" name="add">
+
+    </form>
+
+    {% for i in task %}
+    <a href="{% url  'update' i.id %}">
+        update
+    </a>
+    <a href="{% url  'delete' i.id %}">
+        delete
+    </a>
+    <p> {{i}} </p>
+    {% endfor %}
+</body>
+</html>
